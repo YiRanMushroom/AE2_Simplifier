@@ -11,22 +11,13 @@ public class Config
 {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
-    /*public static final ForgeConfigSpec.BooleanValue LOG_DIRT_BLOCK = BUILDER
-            .comment("Whether to log the dirt block on common setup")
-            .define("logDirtBlock", true);
+    public static final ForgeConfigSpec.BooleanValue BuffCoprocessors = BUILDER
+            .comment("Whether to buff the number of coprocessors on Crafting CPU Cluster")
+            .define("BuffCoprocessors", true);
 
-    public static final ForgeConfigSpec.IntValue MAGIC_NUMBER = BUILDER
-            .comment("A magic number")
-            .defineInRange("magicNumber", 42, 0, Integer.MAX_VALUE);
-
-    public static final ForgeConfigSpec.ConfigValue<String> MAGIC_NUMBER_INTRODUCTION = BUILDER
-            .comment("What you want the introduction message to be for the magic number")
-            .define("magicNumberIntroduction", "The magic number is... ");
-
-    // a list of strings that are treated as resource locations for items
-    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER
-            .comment("A list of items to log on common setup.")
-            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), Config::validateItemName);*/
+    public static final ForgeConfigSpec.BooleanValue BuffWireless = BUILDER
+            .comment("Whether to buff wireless access point range and dimension")
+            .define("BuffWireless", true);
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 

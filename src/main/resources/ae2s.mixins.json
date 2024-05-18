@@ -3,7 +3,9 @@
   "package": "com.github.yiranmushroom.ae2simplifier.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-
+    "CraftingCPUClusterMixin",
+    "MixinWirelessMenu",
+    "MixinWirelessTerminalMenuHost"
   ],
   "injectors": {
     "defaultRequire": 1
