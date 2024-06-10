@@ -7,8 +7,7 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Forge's config APIs
 @net.minecraftforge.fml.common.Mod.EventBusSubscriber(modid = AE2Simplifier.MODID, bus = net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.MOD)
-public class Config
-{
+public class Config {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
     public static final ForgeConfigSpec.BooleanValue BuffCoprocessors = BUILDER
@@ -18,6 +17,10 @@ public class Config
     public static final ForgeConfigSpec.BooleanValue BuffWireless = BUILDER
             .comment("Whether to buff wireless access point range and dimension")
             .define("BuffWireless", true);
+
+    public static final ForgeConfigSpec.IntValue InterfaceFluidBuckets = BUILDER
+            .comment("The number of buckets of capacity that an Interface slot's has. Default is 4096.")
+            .defineInRange("InterfaceFluidBuckets", 4096, 4, Integer.MAX_VALUE);
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
@@ -32,8 +35,7 @@ public class Config
     }*/
 
     @SubscribeEvent
-    static void onLoad(final ModConfigEvent event)
-    {
+    static void onLoad(final ModConfigEvent event) {
 /*        logDirtBlock = LOG_DIRT_BLOCK.get();
         magicNumber = MAGIC_NUMBER.get();
         magicNumberIntroduction = MAGIC_NUMBER_INTRODUCTION.get();
