@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
 import static com.github.yiranmushroom.ae2simplifier.Config.InterfaceFluidBuckets;
+import static com.github.yiranmushroom.ae2simplifier.Config.InterfaceItemStacks;
 
 @Mixin(GenericSlotCapacities.class)
 public class GenericSlotCapacitiesMixin {
@@ -28,6 +29,12 @@ public class GenericSlotCapacitiesMixin {
             map.putIfAbsent(type, (long) InterfaceFluidBuckets.get() * AEFluidKey.AMOUNT_BUCKET);
             return;
         }
+
+        if (type.equals(AEKeyType.items())) {
+            map.putIfAbsent(type, 64L * InterfaceItemStacks.get());
+            return;
+        }
+
         Preconditions.checkArgument(capacity >= 0L, "capacity >= 0");
         map.putIfAbsent(type, capacity);
     }
