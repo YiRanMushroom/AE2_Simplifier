@@ -30,11 +30,6 @@ public class GenericSlotCapacitiesMixin {
             return;
         }
 
-        if (type.equals(AEKeyType.items())) {
-            map.putIfAbsent(type, 64L * InterfaceItemStacks.get());
-            return;
-        }
-
         Preconditions.checkArgument(capacity >= 0L, "capacity >= 0");
         map.putIfAbsent(type, capacity);
     }

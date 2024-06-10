@@ -5,6 +5,7 @@
   "mixins": [
     "CraftingCPUClusterMixin",
     "GenericSlotCapacitiesMixin",
+    "GenericStackInvMixin",
     "MixinWirelessMenu",
     "MixinWirelessTerminalMenuHost"
   ],
