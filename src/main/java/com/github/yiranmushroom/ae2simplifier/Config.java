@@ -24,7 +24,7 @@ public class Config {
 
     public static final ForgeConfigSpec.IntValue InterfaceItemStacks = BUILDER
             .comment("The number of stacks that an Interface slot's has. Default is 256. which is 16384 item in one slot")
-            .defineInRange("InterfaceFluidBuckets", 4096, 1, Integer.MAX_VALUE);
+            .defineInRange("InterfaceItemStacks", 4096, 1, Integer.MAX_VALUE);
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
