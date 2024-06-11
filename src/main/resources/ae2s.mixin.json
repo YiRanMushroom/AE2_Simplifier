@@ -1,0 +1,17 @@
+{
+    "required": true,
+    "package": "ae2s.mixins",
+    "compatibilityLevel": "JAVA_16",
+    "mixins": [
+        "MixinCowMap",
+        "MixinCraftingCPUCluster",
+        "MixinGenericSlotCapacities",
+        "MixinGenericStackInv",
+        "MixinWirelessAccessPointMenu",
+        "MixinWirelessTerminalMenuHost"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "minVersion": "0.8.4"
+}

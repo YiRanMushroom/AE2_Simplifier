@@ -1,2 +1,2 @@
 # Kotlin Modding Skeleton
-Provides an example mod written in Kotlin using Kotlin for Forge.
+Provides an yiranmushroom mod written in Kotlin using Kotlin for Forge.
