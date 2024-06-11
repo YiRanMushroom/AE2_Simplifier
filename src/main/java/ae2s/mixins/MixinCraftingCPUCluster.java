@@ -1,17 +1,19 @@
-package com.github.yiranmushroom.ae2simplifier.mixin;
+package ae2s.mixins;
 
-import appeng.me.cluster.implementations.CraftingCPUCluster;
 import org.spongepowered.asm.mixin.Mixin;
+import appeng.me.cluster.implementations.CraftingCPUCluster;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import yiranmushroom.ae2simplifier.Config;
+import yiranmushroom.ae2simplifier.mixin.helpers.CraftingCPUClusterFunctions;
 
-import static com.github.yiranmushroom.ae2simplifier.Config.BuffCoprocessors;
+import static yiranmushroom.ae2simplifier.ConfigKt.getConfigs;
 
 @Mixin(CraftingCPUCluster.class)
-public abstract class CraftingCPUClusterMixin {
+public abstract class MixinCraftingCPUCluster {
     @Shadow(remap = false)
     private int accelerator;
 
@@ -27,16 +29,9 @@ public abstract class CraftingCPUClusterMixin {
      */
     @Inject(method = "getCoProcessors", at = @At("HEAD"), remap = false, cancellable = true)
     public void getCoProcessors(CallbackInfoReturnable<Integer> cir) {
-        if (BuffCoprocessors.get()) {
-            if (this.threads == 0) {
-                this.threads = (int) (this.getAvailableStorage() / 1024);
-                int multiplied = 0;
-                while (this.threads <= 65536 && multiplied < this.accelerator) {
-                    this.threads *= 2;
-                    multiplied++;
-                }
-            }
-            cir.setReturnValue(this.threads);
+        if (threads == 0) {
+            threads = CraftingCPUClusterFunctions.INSTANCE.getCoProcessors(accelerator, getAvailableStorage());
         }
+        cir.setReturnValue(threads);
     }
 }
