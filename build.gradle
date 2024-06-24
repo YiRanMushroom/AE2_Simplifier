@@ -8,6 +8,8 @@ plugins {
     // OPTIONAL Kotlin Serialization plugin
     //id 'org.jetbrains.kotlin.plugin.serialization' version '2.0.0'
     id 'org.spongepowered.mixin' version '0.7.+'
+
+    id 'com.github.johnrengelman.shadow' version '7.1.0'// generates a fat jar
 }
 
 version = mod_version

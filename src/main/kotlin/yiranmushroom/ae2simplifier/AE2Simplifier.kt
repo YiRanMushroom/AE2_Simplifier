@@ -1,6 +1,6 @@
 package yiranmushroom.ae2simplifier
 
-import yiranmushroom.ae2simplifier.block.ModBlocks
+import yiranmushroom.ae2simplifier.common.ModRegisters
 import net.minecraft.client.Minecraft
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
@@ -28,7 +28,7 @@ object AE2Simplifier {
 //        LOGGER.log(Level.INFO, "Hello world!")
 
         // Register the KDeferredRegister to the mod-specific event bus
-        ModBlocks.REGISTRY.register(MOD_BUS)
+        ModRegisters.REGISTRY.register(MOD_BUS)
 
         val obj = runForDist(
             clientTarget = {
@@ -40,7 +40,7 @@ object AE2Simplifier {
                 "test"
             })
 
-        println(obj)
+//        println(obj)
     }
 
     /**

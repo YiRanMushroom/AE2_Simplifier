@@ -46,6 +46,10 @@ object Config {
         .comment("The number of stacks that an Interface slot's has. Default is 256. which is 16384 item in one slot")
         .defineInRange("InterfaceItemStacks", 256, 1, Long.MAX_VALUE)
 
+/*    val NullInterfaceIsProxy: ForgeConfigSpec.ConfigValue<Boolean> = BUILDER
+        .comment("Is not configured me interfaces become me proxies. Default: true")
+        .define("NullInterfaceIsProxy", true)*/
+
     val SPEC: ForgeConfigSpec = BUILDER.build()
 
     @SubscribeEvent
